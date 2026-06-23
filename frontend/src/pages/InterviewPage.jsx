@@ -5,7 +5,11 @@ import axios from "axios";
 import { useParams } from 'react-router-dom';
 import CodeEditorDemo from "../components/CodeEditorDemo";
 
-const socket = io("http://localhost:5000");
+const API_URL =
+   import.meta.env.VITE_API_URL;
+
+const socket = io(API_URL);
+
 
 
 function InterviewPage() {
@@ -62,7 +66,7 @@ const runCode = async () => {
          
 
       const response = await axios.post(
-         "http://localhost:5000/api/run-code",
+         `${API_URL}/api/run-code`,
          {
             code: codes[selectedLanguage],
             language: selectedLanguage,
@@ -105,7 +109,7 @@ const analyzeCode = async () => {
 
       const response =
       await axios.post(
-         "http://localhost:5000/api/ai/analyze",
+        `${API_URL}/api/ai/analyze`,
          {
             code: codes[selectedLanguage],
             language: selectedLanguage
@@ -133,7 +137,7 @@ const sendInvite = async()=>{
    try{
 
       await axios.post(
-         "http://localhost:5000/api/invite/send-invite",
+         `${API_URL}/api/invite/send-invite`,
          {
             email: inviteEmail,
             roomCode

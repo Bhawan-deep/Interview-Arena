@@ -6,6 +6,8 @@ import secimg from "../assets/secimg.svg";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+const API_URL =
+   import.meta.env.VITE_API_URL;
 
 function LandingPage(){
    const username =
@@ -26,7 +28,7 @@ const [joinRoomCode,setJoinRoomCode] =
 
       const response =
          await axios.post(
-            "http://localhost:5000/api/rooms/join",
+            `${API_URL}/api/rooms/join`,
             {
                roomCode: joinRoomCode
             },
@@ -65,7 +67,7 @@ const [joinRoomCode,setJoinRoomCode] =
 
       const response =
          await axios.post(
-            "http://localhost:5000/api/rooms/create",
+            `${API_URL}/api/rooms/create`,
             {},
             {
                headers:{

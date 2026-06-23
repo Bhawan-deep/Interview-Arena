@@ -3,6 +3,9 @@ import { useState } from "react";
 import axios from "axios";
 import register from "../assets/register.svg"
 import login from "../assets/login.svg"
+const API_URL =
+   import.meta.env.VITE_API_URL;
+
 function AuthModal({
    isLogin,
    setIsLogin,
@@ -27,7 +30,7 @@ function AuthModal({
 
             const response =
             await axios.post(
-               "http://localhost:5000/api/auth/login",
+               `${API_URL}/api/auth/login`,
                {
                   email,
                   password
@@ -56,7 +59,7 @@ function AuthModal({
          else{
 
             await axios.post(
-               "http://localhost:5000/api/auth/register",
+               `${API_URL}/api/auth/register`,
                {
                   name,
                   email,
