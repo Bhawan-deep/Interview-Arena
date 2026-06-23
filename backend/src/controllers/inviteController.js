@@ -3,9 +3,10 @@ require("../config/mail");
 
 const sendInvite =
 async (req,res)=>{
+
+
    console.log("INVITE API HIT");
-
-
+   console.log("BODY:", req.body);
    try{
 
       const {
@@ -41,11 +42,13 @@ Join Interview Arena and enter this room code.
    }
    catch(error){
 
-      res.status(500).json({
-         message:error.message
-      });
+   console.log("MAIL ERROR:", error);
 
-   }
+   res.status(500).json({
+      message:error.message
+   });
+
+}
 
 };
 module.exports = {
