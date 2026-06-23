@@ -3,6 +3,8 @@ require("../config/mail");
 
 const sendInvite =
 async (req,res)=>{
+   console.log("INVITE API HIT");
+
 
    try{
 
